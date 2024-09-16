@@ -71,7 +71,7 @@ easy, right?
 from django.db import models
 from utils.model_abstracts import Model
 from django_extensions.db.models import (
-	TimeStampedModel, 
+	TimeStampedModel, from utils.model_abstracts import Model
 	ActivatorModel,
 	TitleDescriptionModel
 )
@@ -226,11 +226,13 @@ python manage.py migrate
 
 8) Call our endpoints - Here are the requests we can make to our new endpoint.
 
+NB. docker compose up -d --build
+
 >Note: change 'localhost' to 'api' if you make the calls via Docker Decktop.
 
 > This will create a contact request
 
-curl -X POST -H "Content-type: application/json" -d '{"name": "Bobby Stearman", "message": "test", "email":"bobby@didcoding.com"}' 'http://api:8000/contact/'
+curl -X POST -H "Content-type: application/json" -d '{"name": "Mercy Jerono", "message": "test", "email":"mercy@jerono.com"}' 'http://api:8000/contact/'
 
 http http://api:8000/contact/ name="Bobby Stearman" message="test" email="bobby@didcoding.com"
 

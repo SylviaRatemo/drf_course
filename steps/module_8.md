@@ -229,21 +229,21 @@ Let's make some calls to our new endpoint.
 
 curl -X POST -F 'username=**your_username**' -F 'password=**your_password**' http://api:8000/api-token-auth/
 
-http post http://api:8000/api-token-auth/ username=**your_username** password=**your_password**
+http post http://localhost:8000/api-token-auth/ username=sylvia password=root
 
 
 > This will retrieve all items
 
 curl -X GET -H 'Authorization: Token **your_token**' http://api:8000/item/
 
-http http://api:8000/item/ 'Authorization: Token **your_token**'
+http http://localhost:8000/item/ 'Authorization: Token c8f7b92bd41601ada779f1219d94bb595262fe45'
 
 
 > This will retreive a single item
 
 curl -X GET -H 'Authorization: Token **your_token**' http://api:8000/item/**your_item_uuid**/
 
-http http://api:8000/item/**your_item_uuid**/ 'Authorization: Token **your_token**' 
+http http://localhost:8000/item/98b794de-8d88-4e59-8751-92f8901f6de4/ 'Authorization: Token c8f7b92bd41601ada779f1219d94bb595262fe45' 
 
 > This retrieve all orders
 
@@ -255,20 +255,20 @@ http http://api:8000/order/ 'Authorization: Token **your_token**'
 
 curl -X POST -H 'Content-Type: application/json' -H 'Authorization: Token **your_token**' -d '{"item": "**your_item_uuid**", "quantity": "1"}' http://api:8000/order/
 
-http http://api:8000/order/ 'Authorization: Token **your_token**' item="**your_item_uuid**" quantity="1"
+http http://localhost:8000/order/ 'Authorization: Token c8f7b92bd41601ada779f1219d94bb595262fe45' item="98b794de-8d88-4e59-8751-92f8901f6de4" quantity="5"
 
 
 > This get order id = **your_order_uuid**
 
 curl -X GET -H 'Authorization: Token **your_token**' http://api:8000/order/**your_order_uuid**/
 
-http http://api:8000/order/**your_order_uuid**/ 'Authorization: Token **your_token**'
+http http://localhost:8000/order/bea85307-b365-4a1f-b1c4-2fca672efea2/ 'Authorization: Token c8f7b92bd41601ada779f1219d94bb595262fe45'
 
 > This will create a contact request
 
 curl -X POST -H "Content-type: application/json" -d '{"name": "Bobby Stearman", "message": "test", "email":"bobby@didcoding.com"}' 'http://api:8000/contact/'
 
-http http://api:8000/contact/ name="Bobby Stearman" message="test" email="bobby@didcoding.com"
+http http://localhost:8000/contact/ name="Sly Ratemo" message="test" email="sly@ratemo.com"
 
 Congratulations!! You have a fully functioning and tested API!!
 
